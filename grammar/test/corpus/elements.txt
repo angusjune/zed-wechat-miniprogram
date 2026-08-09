@@ -1,0 +1,107 @@
+==================
+Generic and nested elements
+==================
+
+<view id="root"><text>Hello &amp; {{name}}</text><custom-card /></view>
+
+---
+
+(document
+  (element
+    (opening_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (attribute_value
+          (double_quoted_attribute_value
+            (double_quoted_attribute_text)))))
+    (element
+      (opening_tag
+        (tag_name))
+      (text)
+      (entity)
+      (interpolation
+        (identifier))
+      (closing_tag
+        (tag_name)))
+    (self_closing_element
+      (tag_name))
+    (closing_tag
+      (tag_name))))
+
+==================
+Structural elements
+==================
+
+<import src="./item.wxml" />
+<include src="./footer.wxml" />
+<template name="item"><view><slot /></view></template>
+<template is="item" data="{{...item, index}}" />
+<block wx:if="{{visible}}"><slot name="body" /></block>
+
+---
+
+(document
+  (import_element
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text)))))
+  (include_element
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text)))))
+  (template_element
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text))))
+    (element
+      (opening_tag
+        (tag_name))
+      (slot_element
+        (tag_name))
+      (closing_tag
+        (tag_name)))
+    (tag_name))
+  (template_element
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text))))
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (interpolation
+            (object_combination
+              (spread_entry
+                (identifier))
+              (combination_entry
+                (shorthand_entry
+                  (identifier)))))))))
+  (block_element
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (interpolation
+            (identifier)))))
+    (slot_element
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (attribute_value
+          (double_quoted_attribute_value
+            (double_quoted_attribute_text)))))
+    (tag_name)))

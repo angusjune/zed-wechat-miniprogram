@@ -1,0 +1,39 @@
+{
+  "name": "tree-sitter-wxml",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for WeChat Mini Program WXML",
+  "license": "MIT",
+  "author": "Angus Zhu",
+  "main": "bindings/node",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "wxml",
+    "wechat-miniprogram"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "test:update": "tree-sitter test --update",
+    "parse": "tree-sitter parse"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "0.26.12"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  }
+}

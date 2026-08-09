@@ -1,0 +1,43 @@
+==================
+Inline WXS raw text
+==================
+
+<wxs module="fmt">
+var less = left < right;
+module.exports = { label: function (name) { return name + "!"; } };
+</wxs>
+
+---
+
+(document
+  (inline_wxs_module
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text))))
+    (raw_text)
+    (tag_name)))
+
+==================
+External WXS module
+==================
+
+<wxs src="./tools.wxs" module="tools" />
+
+---
+
+(document
+  (external_wxs_module
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text))))
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text))))))

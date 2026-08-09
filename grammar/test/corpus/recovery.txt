@@ -1,0 +1,42 @@
+==================
+Incomplete element
+==================
+
+<view class="card">
+  <text>{{label}}</text>
+
+---
+
+(document
+  (ERROR
+    (opening_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (attribute_value
+          (double_quoted_attribute_value
+            (double_quoted_attribute_text)))))
+    (element
+      (opening_tag
+        (tag_name))
+      (interpolation
+        (identifier))
+      (closing_tag
+        (tag_name)))))
+
+==================
+Incomplete interpolation
+==================
+
+<view class="row {{active ? 'active'">
+
+---
+
+(document
+  (ERROR
+    (tag_name)
+    (attribute_name)
+    (double_quoted_attribute_text)
+    (identifier)
+    (string)
+    (ERROR)))

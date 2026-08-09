@@ -1,0 +1,122 @@
+==================
+Expression precedence and calls
+==================
+
+<view>{{!hidden || total / count >= 2 ? tools.label(items[0].name) : 'none'}}</view>
+
+---
+
+(document
+  (element
+    (opening_tag
+      (tag_name))
+    (interpolation
+      (conditional_expression
+        (binary_expression
+          (unary_expression
+            (identifier))
+          (binary_expression
+            (binary_expression
+              (identifier)
+              (identifier))
+            (number)))
+        (call_expression
+          (member_expression
+            (identifier)
+            (identifier))
+          (arguments
+            (member_expression
+              (subscript_expression
+                (identifier)
+                (number))
+              (identifier))))
+        (string)))
+    (closing_tag
+      (tag_name))))
+
+==================
+WXML object combinations
+==================
+
+<template is="item" data="{{foo: value, bar, ...source}}" />
+<template is="item" data="{{...item, index}}" />
+
+---
+
+(document
+  (template_element
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text))))
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (interpolation
+            (object_combination
+              (pair_entry
+                (identifier)
+                (identifier))
+              (combination_entry
+                (shorthand_entry
+                  (identifier)))
+              (combination_entry
+                (spread_entry
+                  (identifier)))))))))
+  (template_element
+    (tag_name)
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (double_quoted_attribute_text))))
+    (attribute
+      (attribute_name)
+      (attribute_value
+        (double_quoted_attribute_value
+          (interpolation
+            (object_combination
+              (spread_entry
+                (identifier))
+              (combination_entry
+                (shorthand_entry
+                  (identifier))))))))))
+
+==================
+Mixed attribute values
+==================
+
+<view id="row-{{item.id}}" class="row {{active ? 'active' : ''}} ">{{label}}</view>
+
+---
+
+(document
+  (element
+    (opening_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (attribute_value
+          (double_quoted_attribute_value
+            (double_quoted_attribute_text)
+            (interpolation
+              (member_expression
+                (identifier)
+                (identifier))))))
+      (attribute
+        (attribute_name)
+        (attribute_value
+          (double_quoted_attribute_value
+            (double_quoted_attribute_text)
+            (interpolation
+              (conditional_expression
+                (identifier)
+                (string)
+                (string)))))))
+    (interpolation
+      (identifier))
+    (closing_tag
+      (tag_name))))

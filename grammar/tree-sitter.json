@@ -1,0 +1,41 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "wxml",
+      "camelcase": "Wxml",
+      "title": "WXML",
+      "scope": "source.wxml",
+      "file-types": [
+        "wxml"
+      ],
+      "injection-regex": "^wxml$",
+      "class-name": "TreeSitterWxml"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for WeChat Mini Program WXML",
+    "authors": [
+      {
+        "name": "Angus Zhu",
+        "email": "angus.is.online@gmail.com",
+        "url": "https://github.com/angusjune"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/angusjune/zed-wechat-miniprogram"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "java": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false,
+    "zig": false
+  }
+}
