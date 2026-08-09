@@ -1,0 +1,6 @@
+@import "./common.wxss";
+
+.card, view::before {
+  width: 750rpx;
+  padding: 5px;
+}

@@ -1,0 +1,12 @@
+id = "wechat-miniprogram"
+name = "WeChat Mini Program"
+version = "0.1.0"
+schema_version = 1
+authors = ["Angus Zhu"]
+description = "WXML, WXSS, and WXS syntax highlighting for WeChat Mini Programs"
+repository = "https://github.com/angusjune/zed-wechat-miniprogram"
+
+[grammars.wxml]
+repository = "https://github.com/angusjune/zed-wechat-miniprogram"
+rev = "0b899607dabd2795579c6bbc431be7b4b76421ce"
+path = "grammar"

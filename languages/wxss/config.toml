@@ -1,0 +1,13 @@
+name = "WXSS"
+grammar = "css"
+path_suffixes = ["wxss"]
+tab_size = 2
+autoclose_before = ";:.,=}])>"
+block_comment = { start = "/*", prefix = "* ", end = "*/", tab_size = 1 }
+brackets = [
+    { start = "{", end = "}", close = true, newline = true },
+    { start = "[", end = "]", close = true, newline = false },
+    { start = "(", end = ")", close = true, newline = false },
+    { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+    { start = "'", end = "'", close = true, newline = false, not_in = ["string", "comment"] },
+]

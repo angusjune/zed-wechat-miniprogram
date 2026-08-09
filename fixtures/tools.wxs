@@ -1,0 +1,10 @@
+var dep = require("./dep.wxs");
+var date = getDate(1500000000000);
+var pattern = getRegExp("^wx", "i");
+
+module.exports = {
+  ok: function (value) {
+    return pattern.test(value) && dep.ok;
+  },
+  date: date
+};

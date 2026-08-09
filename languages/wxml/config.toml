@@ -1,0 +1,15 @@
+name = "WXML"
+grammar = "wxml"
+path_suffixes = ["wxml"]
+tab_size = 2
+autoclose_before = ";:.,=}])>"
+block_comment = { start = "<!--", prefix = "", end = "-->", tab_size = 1 }
+brackets = [
+    { start = "{{", end = "}}", close = true, newline = false, not_in = ["comment", "string"] },
+    { start = "{", end = "}", close = true, newline = true, not_in = ["comment", "string"] },
+    { start = "[", end = "]", close = true, newline = false, not_in = ["comment", "string"] },
+    { start = "(", end = ")", close = true, newline = false, not_in = ["comment", "string"] },
+    { start = "<", end = ">", close = false, newline = true, not_in = ["comment", "string"] },
+    { start = "\"", end = "\"", close = true, newline = false, not_in = ["comment", "string"] },
+    { start = "'", end = "'", close = true, newline = false, not_in = ["comment", "string"] },
+]

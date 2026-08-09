@@ -1,0 +1,22 @@
+<wxs module="fmt">
+var suffix = "!";
+module.exports = {
+  label: function (name) { return name + suffix; }
+};
+</wxs>
+<wxs src="./tools.wxs" module="tools" />
+
+<import src="./item.wxml" />
+
+<block wx:for="{{items}}" wx:for-item="item" wx:key="id">
+  <view
+    id="row-{{item.id}}"
+    wx:if="{{item.visible}}"
+    class="row {{item.active ? 'active' : ''}}"
+    bindtap="onTap"
+  >
+    {{fmt.label(item.name)}} {{items[0].name}}
+  </view>
+</block>
+
+<template is="item" data="{{...item, index}}" />
